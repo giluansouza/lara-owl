@@ -2,6 +2,7 @@
 
 ## Table of Contents
 
--   () Users
--   () Companies
--   () Projects
+-   Users
+-   People
+-   Organizations
+-   Occurrences
