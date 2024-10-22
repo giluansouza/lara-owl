@@ -26,29 +26,35 @@ Route::middleware('auth:sanctum')
             }
 
             if ($request->has('id')) {
-                $query->where('id', $request->id);
+                $person = $query->find($request->id);
+
+                if (!$person) {
+                    return response()->json(['message' => 'Pessoa não encontrada.'], 404);
+                }
+
+                return response()->json(['data' => $person]);
+            } else {
+                $people = $query->paginate();
+
+                return response()->json([
+                    'data' => $people->items(),
+                    'current_page' => $people->currentPage(),
+                    'last_page' => $people->lastPage(),
+                    'total' => $people->total(),
+                ]);
             }
+        });
 
-            $people = $query->paginate();
+        Route::get('/people/{people}', function (Request $request, $people) {
+            $person = People::findOrFail($people);
 
-            return response()->json([
-                'data' => $people->items(),
-                'current_page' => $people->currentPage(),
-                'last_page' => $people->lastPage(),
-                'total' => $people->total(),
-            ]);
+            return response()->json(['data' => $person]);
         });
     });
 
 
 
 Route::post("/login", function (Request $request) {
-    // $request->validate([
-    //     "email" => ["required", "email"],
-    //     "password" => ["required"],
-    //     'device_name' => ['required']
-    // ]);
-
     $user = User::where("email", $request->email)->first();
 
     if (!$user || !Hash::check($request->password, $user->password)) {
