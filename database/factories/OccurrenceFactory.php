@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Orcrim;
 use App\Models\Organization;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,7 +23,7 @@ class OccurrenceFactory extends Factory
             'latitude' => $this->faker->latitude,
             'longitude' => $this->faker->longitude,
             'occurred_at' => $this->faker->dateTime,
-            'organization_id' => Organization::factory(),
+            'orcrim_id' => $this->faker->numberBetween(1, 4),
         ];
     }
 }

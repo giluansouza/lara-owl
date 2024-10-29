@@ -1,6 +1,8 @@
 <?php
 
-use App\Models\People;
+use App\Http\Controllers\Api\CityController;
+use App\Http\Controllers\Api\OrcrimController;
+use App\Http\Controllers\Api\PeopleController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,38 +20,9 @@ Route::middleware('auth:sanctum')
             ]);
         });
 
-        Route::get('/people', function (Request $request) {
-            $query = People::query();
-
-            if ($request->has('name')) {
-                $query->where('name', 'like', '%' . $request->name . '%');
-            }
-
-            if ($request->has('id')) {
-                $person = $query->find($request->id);
-
-                if (!$person) {
-                    return response()->json(['message' => 'Pessoa não encontrada.'], 404);
-                }
-
-                return response()->json(['data' => $person]);
-            } else {
-                $people = $query->paginate();
-
-                return response()->json([
-                    'data' => $people->items(),
-                    'current_page' => $people->currentPage(),
-                    'last_page' => $people->lastPage(),
-                    'total' => $people->total(),
-                ]);
-            }
-        });
-
-        Route::get('/people/{people}', function (Request $request, $people) {
-            $person = People::findOrFail($people);
-
-            return response()->json(['data' => $person]);
-        });
+        Route::apiResource('/people', PeopleController::class);
+        Route::apiResource('/orcrims', OrcrimController::class);
+        Route::apiResource('/cities', CityController::class);
     });
 
 

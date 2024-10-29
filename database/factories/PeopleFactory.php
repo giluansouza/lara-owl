@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Organization;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,8 +18,23 @@ class PeopleFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'cpf' => $this->faker->numerify('###.###.###-##'),
-            'organization_id' => Organization::factory(),
+            'cpf' => $this->faker->cpf(),
+            'rg' => $this->faker->rg(),
+            'birthDate' => $this->faker->date,
+            'gender' => $this->faker->randomElement(['Masculino', 'Feminino']),
+            'father' => $this->faker->name,
+            'mother' => $this->faker->name,
+            'profession' => $this->faker->word,
+            'color' => $this->faker->colorName,
+            'nicknames' => $this->faker->words(1, true),
+            'crimeGroup' => $this->faker->word,
+            'function' => $this->faker->word,
+            'priority' => $this->faker->word,
+            'hasCriminalRecords' => $this->faker->boolean,
+            'recordDescription' => $this->faker->sentence,
+            'workArea' => $this->faker->word,
+            'orcrim_id' => $this->faker->numberBetween(1, 5),
+            'city_id' => $this->faker->numberBetween(1, 4),
         ];
     }
 }

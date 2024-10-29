@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('occurrences', function (Blueprint $table) {
             $table->id();
             $table->datetime('occurred_at');
-            $table->string('description');
-            $table->foreignId('organization_id')->nullable()->constrained()->onDelete('set null');
+            $table->text('description');
+            $table->foreignId('orcrim_id')->nullable()->constrained('orcrims')->onDelete('set null');
             $table->decimal('latitude', 10, 7)->nullable();
             $table->decimal('longitude', 10, 7)->nullable();
             $table->timestamps();

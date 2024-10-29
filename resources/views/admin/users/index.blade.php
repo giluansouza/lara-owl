@@ -7,7 +7,6 @@
 
  <div class="flex flex-col sm:flex-row items-center justify-between">
   <h1 class="text-2xl font-bold my-4 dark:text-zinc-200">Listando usuários</h1>
-  <a class="text-blue-700 hover:underline" href="{{ route('users.token') }}">API Token</a>
   <a class="w-52 rounded-md px-2 h-10 flex items-center justify-center bg-slate-700 dark:bg-slate-500 text-white hover:bg-slate-700/80" href="{{ route('users.create') }}">Criar novo usuário</a>
  </div>
 

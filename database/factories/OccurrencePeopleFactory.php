@@ -19,8 +19,8 @@ class OccurrencePeopleFactory extends Factory
     public function definition(): array
     {
         return [
-            'occurrence_id' => Occurrence::factory(),
-            'people_id' => People::factory(),
+            'occurrence_id' => $this->faker->numberBetween(1, 10),
+            'people_id' => $this->faker->numberBetween(1, 15),
         ];
     }
 }
