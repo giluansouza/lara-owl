@@ -33,8 +33,8 @@ class PeopleFactory extends Factory
             'hasCriminalRecords' => $this->faker->boolean,
             'recordDescription' => $this->faker->sentence,
             'workArea' => $this->faker->word,
-            'orcrim_id' => $this->faker->numberBetween(1, 5),
-            'city_id' => $this->faker->numberBetween(1, 4),
+            'orcrim_id' => $this->faker->numberBetween(1, 10),
+            'city_id' => $this->faker->numberBetween(1, 8),
         ];
     }
 }

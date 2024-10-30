@@ -17,4 +17,9 @@ class City extends Model
     {
         return $this->hasMany(Orcrim::class);
     }
+
+    public function occurrences()
+    {
+        return $this->hasMany(Occurrence::class, 'cities_id');
+    }
 }

@@ -18,7 +18,7 @@ class OrcrimFactory extends Factory
     {
         return [
             'orcrim_name' => $this->faker->lexify('???'),
-            'city_id' => $this->faker->numberBetween(1, 4),
+            'city_id' => $this->faker->numberBetween(1, 8),
         ];
     }
 }

@@ -18,14 +18,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        City::factory(4)->create();
+        City::factory(8)->create();
 
-        Orcrim::factory(5)->create();
+        Orcrim::factory(10)->create();
 
-        People::factory(15)->create();
+        People::factory(85)->create();
 
-        Occurrence::factory(10)->create();
+        Occurrence::factory(80)->create();
 
-        OccurrencePeople::factory(10)->create();
+        OccurrencePeople::factory(80)->create();
     }
 }

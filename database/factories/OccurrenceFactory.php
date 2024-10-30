@@ -23,7 +23,10 @@ class OccurrenceFactory extends Factory
             'latitude' => $this->faker->latitude,
             'longitude' => $this->faker->longitude,
             'occurred_at' => $this->faker->dateTime,
-            'orcrim_id' => $this->faker->numberBetween(1, 4),
+            'orcrim_id' => $this->faker->numberBetween(1, 8),
+            'city_id' => $this->faker->numberBetween(1, 10),
+            'type' => $this->faker->randomElement(['Assalto', 'Roubo', 'Furto', 'Homicídio', 'Vandalismo', 'Outros']),
+            'opm' => $this->faker->word,
         ];
     }
 }

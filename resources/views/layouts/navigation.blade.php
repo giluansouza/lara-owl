@@ -24,8 +24,8 @@
                     <x-nav-link :href="route('occurrence.index')" :active="request()->routeIs('occurrence.index')">
                         {{ __('Occurrence') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('org.index')" :active="request()->routeIs('org.index')">
-                        {{ __('Organization') }}
+                    <x-nav-link :href="route('gc.index')" :active="request()->routeIs('gc.index')">
+                        {{ __('Grupo-crime') }}
                     </x-nav-link>
                 </div>
             </div>

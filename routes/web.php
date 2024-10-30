@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\OrcrimController;
 use App\Http\Controllers\OccurrenceController;
-use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\PeopleController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -31,13 +31,13 @@ Route::middleware('auth')
         Route::get('/people/{people}/edit', [PeopleController::class, 'edit'])->name('people.edit');
         Route::put('/people/{people}', [PeopleController::class, 'update'])->name('people.update');
 
-        Route::delete('/org/{people}', [OrganizationController::class, 'destroy'])->name('org.destroy');
-        Route::get('/org/create', [OrganizationController::class, 'create'])->name('org.create');
-        Route::get('/org/{people}', [OrganizationController::class, 'show'])->name('org.show');
-        Route::get('/org', [OrganizationController::class, 'index'])->name('org.index');
-        Route::post('/org', [OrganizationController::class, 'store'])->name('org.store');
-        Route::get('/org/{people}/edit', [OrganizationController::class, 'edit'])->name('org.edit');
-        Route::put('/org/{people}', [OrganizationController::class, 'update'])->name('org.update');
+        // Route::delete('/org/{people}', [OrcrimController::class, 'destroy'])->name('org.destroy');
+        // Route::get('/org/create', [OrcrimController::class, 'create'])->name('org.create');
+        // Route::get('/org/{people}', [OrcrimController::class, 'show'])->name('org.show');
+        Route::get('/grupo-crime', [OrcrimController::class, 'index'])->name('gc.index');
+        // Route::post('/org', [OrcrimController::class, 'store'])->name('org.store');
+        // Route::get('/org/{people}/edit', [OrcrimController::class, 'edit'])->name('org.edit');
+        // Route::put('/org/{people}', [OrcrimController::class, 'update'])->name('org.update');
 
         Route::delete('/occurrences/{people}', [OccurrenceController::class, 'destroy'])->name('occurrence.destroy');
         Route::get('/occurrences/create', [OccurrenceController::class, 'create'])->name('occurrence.create');

@@ -44,7 +44,7 @@
 
   <p class="mt-4 font-semibold">Occurrences</p>
   <span>
-    curl -X GET http://localhost/api/ocurrences \ <br>
+    curl -X GET http://localhost/api/occurrences \ <br>
     -H "Authorization: Bearer {{ $token }}" \ <br>
     -H "Accept: application/json"
   </span>

@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\Api\CityController;
+use App\Http\Controllers\Api\OccurrenceController;
 use App\Http\Controllers\Api\OrcrimController;
 use App\Http\Controllers\Api\PeopleController;
+use App\Models\Occurrence;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,6 +25,7 @@ Route::middleware('auth:sanctum')
         Route::apiResource('/people', PeopleController::class);
         Route::apiResource('/orcrims', OrcrimController::class);
         Route::apiResource('/cities', CityController::class);
+        Route::apiResource('/occurrences', OccurrenceController::class);
     });
 
 
