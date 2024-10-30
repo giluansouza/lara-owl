@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        City::factory(8)->create();
+        City::factory(10)->create();
 
         Orcrim::factory(10)->create();
 

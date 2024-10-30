@@ -27,6 +27,9 @@
                     <x-nav-link :href="route('gc.index')" :active="request()->routeIs('gc.index')">
                         {{ __('Grupo-crime') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('map.index')" :active="request()->routeIs('map.index')">
+                        {{ __('Mapas') }}
+                    </x-nav-link>
                 </div>
             </div>
 

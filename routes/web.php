@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\MapController;
 use App\Http\Controllers\OrcrimController;
 use App\Http\Controllers\OccurrenceController;
 use App\Http\Controllers\PeopleController;
@@ -46,6 +47,9 @@ Route::middleware('auth')
         Route::post('/occurrences', [OccurrenceController::class, 'store'])->name('occurrence.store');
         Route::get('/occurrences/{people}/edit', [OccurrenceController::class, 'edit'])->name('occurrence.edit');
         Route::put('/occurrences/{people}', [OccurrenceController::class, 'update'])->name('occurrence.update');
+
+        // Mapas
+        Route::get('/mapas', [MapController::class, 'index'])->name('map.index');
     });
 
 Route::get('/', function () {

@@ -28,4 +28,9 @@ class Orcrim extends Model
     {
         return $this->hasMany(Occurrence::class, 'orcrim_id');
     }
+
+    public function polygon()
+    {
+        return $this->hasMany(Polygon::class, 'orcrim_id');
+    }
 }
