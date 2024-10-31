@@ -64,4 +64,33 @@ class OrcrimController extends Controller
     {
         //
     }
+
+    public function showConnections($id)
+    {
+        $orcrim = Orcrim::with('people')->find($id);
+
+        $connections = [];
+        $links = [];
+
+        foreach ($orcrim->people as $person) {
+            $connections[$person->id] = [
+                'name' => $person->name,
+                'connections' => $person->relationships->count(),
+            ];
+
+            // Adiciona cada relacionamento como um link entre nós
+            foreach ($person->relationships as $relatedPerson) {
+                // Verifica se já existe um link entre esses IDs para evitar duplicação
+                $links[] = [
+                    'source' => $person->id,
+                    'target' => $relatedPerson->id,
+                ];
+            }
+        }
+
+        return view('app.orcrim.connections', [
+            'connections' => json_encode($connections),
+            'links' => json_encode($links),
+        ]);
+    }
 }

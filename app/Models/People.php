@@ -25,4 +25,9 @@ class People extends Model
     {
         return $this->belongsToMany(Occurrence::class, 'occurrence_people');
     }
+
+    public function relationships()
+    {
+        return $this->belongsToMany(People::class, 'relationships', 'people_id', 'related_people_id');
+    }
 }

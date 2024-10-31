@@ -39,7 +39,18 @@ class OrcrimController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $orcrim = Orcrim::with('people')->findOrFail($id);
+
+        // Coleta de vínculos e influências
+        $connections = [];
+        foreach ($orcrim->people as $person) {
+            $connections[$person->id] = [
+                'name' => $person->name,
+                'connections' => $person->relationships->count(), // Conta quantas conexões a pessoa tem
+            ];
+        }
+
+        return response()->json($connections);
     }
 
     /**
