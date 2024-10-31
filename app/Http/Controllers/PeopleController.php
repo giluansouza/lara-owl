@@ -12,7 +12,7 @@ class PeopleController extends Controller
      */
     public function index()
     {
-        $people = People::paginate();
+        $people = People::orderBy('name', 'asc')->paginate();
 
         return view('app.people.index', compact('people'));
     }

@@ -24,9 +24,7 @@
       <td class="px-2 border dark:text-zinc-200">{{ $element->orcrim_name }}</td>
       <td class="px-2 border dark:text-zinc-200">{{ $element->people_count }}</td>
       <td class="px-2 border dark:text-zinc-200 text-center">
-        <a class="hover:underline" href="{{ route('gc.connections', $element->id) }}">Visualizar</a>
-        {{-- <span>|</span> --}}
-        {{-- <a class="hover:underline" href="{{ route('users.edit', $user->id) }}">Editar</a> --}}
+        <button onclick="showGraphModal({{ $element->id }})" class="hover:underline">Visualizar</button>
       </td>
     </tr>
     @empty
@@ -36,4 +34,7 @@
   </table>
 
   {{ $orcrim->links() }}
+
+  <!-- Modal de Visualização do Gráfico -->
+  @include('app.orcrim.modal')
 @endsection

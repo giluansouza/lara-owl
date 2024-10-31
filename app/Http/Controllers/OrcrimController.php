@@ -75,6 +75,7 @@ class OrcrimController extends Controller
         foreach ($orcrim->people as $person) {
             $connections[$person->id] = [
                 'name' => $person->name,
+                'image' => $person->image,
                 'connections' => $person->relationships->count(),
             ];
 
@@ -88,9 +89,14 @@ class OrcrimController extends Controller
             }
         }
 
-        return view('app.orcrim.connections', [
-            'connections' => json_encode($connections),
-            'links' => json_encode($links),
+        return response()->json([
+            'nodes' => $connections,
+            'links' => $links,
         ]);
+
+        // return view('app.orcrim.connections', [
+        //     'connections' => json_encode($connections),
+        //     'links' => json_encode($links),
+        // ]);
     }
 }
