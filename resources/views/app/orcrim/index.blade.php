@@ -16,6 +16,7 @@
     <thead class="w-full bg-zinc-400 h-9 border">
       <th style="border: 1px solid #ccc">Nome</th>
       <th style="border: 1px solid #ccc">Qtd de membros</th>
+      <th style="border: 1px solid #ccc">Qtd de ocorrências</th>
       <th>Ações</th>
     </thead>
     <tbody>
@@ -23,8 +24,16 @@
     <tr class="w-full min-h-10 h-10">
       <td class="px-2 border dark:text-zinc-200">{{ $element->orcrim_name }}</td>
       <td class="px-2 border dark:text-zinc-200">{{ $element->people_count }}</td>
-      <td class="px-2 border dark:text-zinc-200 text-center">
-        <button onclick="showGraphModal({{ $element->id }})" class="hover:underline">Visualizar</button>
+      <td class="px-2 border dark:text-zinc-200">{{ $element->occurrences_count }}</td>
+      <td class="px-2 gap-4 border dark:text-zinc-200 text-center">
+        <div class="flex gap-4">
+          <button onclick="showGraphModal({{ $element->id }})" class="p-1 text-blue-500 hover:underline">
+            <i class="fa-solid fa-diagram-project"></i>
+          </button>
+          <button onclick="showMapModal({{ $element->id }})" class="p-1 text-green-500 hover:underline">
+            <i class="fa-solid fa-map"></i>
+          </button>
+        </div>
       </td>
     </tr>
     @empty
@@ -37,4 +46,5 @@
 
   <!-- Modal de Visualização do Gráfico -->
   @include('app.orcrim.modal')
+  @include('app.orcrim.modal-map')
 @endsection

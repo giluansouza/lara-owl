@@ -12,7 +12,7 @@ class OrcrimController extends Controller
      */
     public function index()
     {
-        $orcrim = Orcrim::withCount('people')->paginate();
+        $orcrim = Orcrim::withCount(['people', 'occurrences'])->paginate();
 
         return view('app.orcrim.index', compact('orcrim'));
     }
@@ -98,5 +98,33 @@ class OrcrimController extends Controller
         //     'connections' => json_encode($connections),
         //     'links' => json_encode($links),
         // ]);
+    }
+
+    public function showMaps($id)
+    {
+        $orcrim = Orcrim::withCount(['people', 'occurrences'])
+            ->with(['polygon' => function ($query) {
+                $query->selectRaw("id, name, orcrim_id, ST_AsGeoJSON(area) as geojson");
+            }])
+            ->find($id);
+
+        if (!$orcrim) {
+            return response()->json(['error' => 'Orcrim não encontrado.'], 404);
+        }
+
+        // Transformar polígonos em GeoJSON
+        $maps = $orcrim->polygon->map(function ($polygon) use ($orcrim) {
+            // Decodificando o GeoJSON
+            $geojson = json_decode($polygon->geojson, true);
+
+            return [
+                'orcrim_name' => $orcrim->orcrim_name,
+                'geojson' => json_encode($geojson),
+                'total_people' => $orcrim->people_count,
+                'total_occurrences' => $orcrim->occurrences_count,
+            ];
+        })->filter(); // Remover elementos nulos
+
+        return response()->json($maps);
     }
 }

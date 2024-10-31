@@ -85,6 +85,18 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('people.index')" :active="request()->routeIs('people.index')">
+                {{ __('People') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('occurrence.index')" :active="request()->routeIs('occurrence.index')">
+                {{ __('Occurrence') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('gc.index')" :active="request()->routeIs('gc.index')">
+                {{ __('Grupo-crime') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('map.index')" :active="request()->routeIs('map.index')">
+                {{ __('Mapas') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

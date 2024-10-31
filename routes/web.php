@@ -37,6 +37,7 @@ Route::middleware('auth')
         // Route::get('/org/{people}', [OrcrimController::class, 'show'])->name('org.show');
         Route::get('/grupo-crime', [OrcrimController::class, 'index'])->name('gc.index');
         Route::get('/grupo-crime/connections/{id}', [OrcrimController::class, 'showConnections'])->name('gc.connections');
+        Route::get('/grupo-crime/maps/{id}', [OrcrimController::class, 'showMaps'])->name('gc.maps');
         // Route::post('/org', [OrcrimController::class, 'store'])->name('org.store');
         // Route::get('/org/{people}/edit', [OrcrimController::class, 'edit'])->name('org.edit');
         // Route::put('/org/{people}', [OrcrimController::class, 'update'])->name('org.update');
