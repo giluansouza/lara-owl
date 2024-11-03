@@ -8,7 +8,7 @@
       </svg>
     </li>
     @if(isset($currentPage) && ($currentPage !== 'Mapas'))
-      <li><a class="text-blue-800 dark:text-blue-400 hover:underline" href="{{ route('users.index') }}">Usuários</a></li>
+      <li><a class="text-blue-800 dark:text-blue-400 hover:underline" href="{{ route('maps.index') }}">Mapas</a></li>
       <li>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />

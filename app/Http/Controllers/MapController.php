@@ -25,6 +25,8 @@ class MapController extends Controller
                 $geojson = json_decode($polygon->geojson, true);
 
                 return [
+                    'id' => $polygon->id,
+                    'polygon_name' => $polygon->name,
                     'orcrim_name' => $orcrim->orcrim_name,
                     'geojson' => json_encode($geojson),
                     'total_people' => $orcrim->people_count,

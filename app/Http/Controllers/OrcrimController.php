@@ -93,11 +93,6 @@ class OrcrimController extends Controller
             'nodes' => $connections,
             'links' => $links,
         ]);
-
-        // return view('app.orcrim.connections', [
-        //     'connections' => json_encode($connections),
-        //     'links' => json_encode($links),
-        // ]);
     }
 
     public function showMaps($id)

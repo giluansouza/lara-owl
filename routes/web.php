@@ -5,6 +5,7 @@ use App\Http\Controllers\MapController;
 use App\Http\Controllers\OrcrimController;
 use App\Http\Controllers\OccurrenceController;
 use App\Http\Controllers\PeopleController;
+use App\Http\Controllers\PolygonController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,8 +51,14 @@ Route::middleware('auth')
         Route::get('/occurrences/{people}/edit', [OccurrenceController::class, 'edit'])->name('occurrence.edit');
         Route::put('/occurrences/{people}', [OccurrenceController::class, 'update'])->name('occurrence.update');
 
-        // Mapas
-        Route::get('/mapas', [MapController::class, 'index'])->name('map.index');
+        // Maps
+        Route::get('/mapas', [MapController::class, 'index'])->name('maps.index');
+
+        // Polygons
+        Route::get('/polygons/create', [PolygonController::class, 'create'])->name('polygons.create');
+        Route::post('/polygons', [PolygonController::class, 'store'])->name('polygons.store');
+        Route::get('/polygons/{polygon}/edit', [PolygonController::class, 'edit'])->name('polygons.edit');
+        Route::put('/polygons/{polygon}', [PolygonController::class, 'update'])->name('polygons.update');
     });
 
 Route::get('/', function () {

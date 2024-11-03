@@ -24,7 +24,7 @@
       fetch(`grupo-crime/connections/${orcrimId}`)
           .then(response => response.json())
           .then(data => {
-              drawGraph(data.nodes, data.links);  // Atualizar gráfico com novos dados
+              drawGraph(data.nodes, data.links);
           })
           .catch(error => console.error('Erro ao buscar dados:', error));
   }

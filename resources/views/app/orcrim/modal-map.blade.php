@@ -76,11 +76,16 @@
         polygons.forEach(function(element) {
             let geojson = JSON.parse(element.geojson);
             geojson.coordinates[0] = geojson.coordinates[0].map(function(coord) {
-                return [coord[1], coord[0]]; // Ajuste de coordenadas para Leaflet
+                return [coord[0], coord[1]];
             });
 
             let geojsonLayer = L.geoJSON(geojson, {
-                style: { color: 'red' }
+                style: {
+                    color: 'red',
+                    weight: 2,
+                    opacity: 1,
+                    fillOpacity: 0.3
+                }
             }).addTo(map);
             geojsonLayer.bindPopup(`${element.orcrim_name}<br>Total de Pessoas: ${element.total_people}<br>Total de Ocorrências: ${element.total_occurrences}`);
         });

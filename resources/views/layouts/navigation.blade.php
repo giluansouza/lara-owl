@@ -25,9 +25,9 @@
                         {{ __('Occurrence') }}
                     </x-nav-link>
                     <x-nav-link :href="route('gc.index')" :active="request()->routeIs('gc.index')">
-                        {{ __('Grupo-crime') }}
+                        {{ __('Organizações') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('map.index')" :active="request()->routeIs('map.index')">
+                    <x-nav-link :href="route('maps.index')" :active="request()->routeIs('maps.index')">
                         {{ __('Mapas') }}
                     </x-nav-link>
                 </div>
@@ -92,9 +92,9 @@
                 {{ __('Occurrence') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('gc.index')" :active="request()->routeIs('gc.index')">
-                {{ __('Grupo-crime') }}
+                {{ __('Organizações') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('map.index')" :active="request()->routeIs('map.index')">
+            <x-responsive-nav-link :href="route('maps.index')" :active="request()->routeIs('maps.index')">
                 {{ __('Mapas') }}
             </x-responsive-nav-link>
         </div>
